@@ -1,0 +1,134 @@
+/**
+ * Foundry Apps — Brand Color System
+ * CSS custom properties for the master brand and all sub-brands.
+ *
+ * Import into any project:
+ *   @import 'https://foundryapps.co.uk/brand/colors.css';
+ *   (or copy this file locally)
+ *
+ * Usage:
+ *   background: var(--foundry-bg-deep);
+ *   color: var(--foundry-orange);
+ */
+
+:root {
+
+  /* ────────────────────────────────────────────────
+     MASTER BRAND — FOUNDRY APPS
+     Forge/metalwork palette. Dark, warm, amber-lit.
+  ──────────────────────────────────────────────── */
+
+  /* Backgrounds */
+  --foundry-bg-deep:    #0c0a09;   /* Near-black, warm undertone — page canvas */
+  --foundry-bg-surface: #1c1917;   /* Lifted surface — sections, sidebars */
+  --foundry-bg-card:    #292524;   /* Card / panel background */
+  --foundry-bg-hover:   #3c3836;   /* Interactive hover state background */
+
+  /* Borders */
+  --foundry-border:     #44403c;   /* Default border */
+  --foundry-border-lt:  #57534e;   /* Lighter border, focus rings */
+
+  /* Text */
+  --foundry-text:       #e7e5e4;   /* Primary body text */
+  --foundry-text-muted: #a8a29e;   /* Secondary / muted text */
+  --foundry-text-faint: #78716c;   /* Placeholder, disabled text */
+
+  /* ── Forge Orange (primary accent) ── */
+  --foundry-orange-300: #fdba74;   /* Soft amber glow — decorative */
+  --foundry-orange-400: #fb923c;   /* Hover states, lighter accents */
+  --foundry-orange-500: #f97316;   /* PRIMARY — CTAs, highlights, links */
+  --foundry-orange-600: #ea580c;   /* Pressed / active states */
+  --foundry-orange-700: #c2410c;   /* Dark accent, shadows */
+
+  /* Convenience aliases */
+  --foundry-orange:      var(--foundry-orange-500);
+  --foundry-orange-lt:   var(--foundry-orange-400);
+  --foundry-orange-dim:  var(--foundry-orange-300);
+
+  /* ── Semantic colours ── */
+  --foundry-success:     #22c55e;   /* Success green */
+  --foundry-success-bg:  rgba(34, 197, 94, 0.12);
+  --foundry-success-border: rgba(34, 197, 94, 0.30);
+
+  --foundry-warning:     #f59e0b;   /* Warning amber */
+  --foundry-warning-bg:  rgba(245, 158, 11, 0.12);
+  --foundry-warning-border: rgba(245, 158, 11, 0.30);
+
+  --foundry-error:       #ef4444;   /* Error red */
+  --foundry-error-bg:    rgba(239, 68, 68, 0.12);
+  --foundry-error-border: rgba(239, 68, 68, 0.30);
+
+  --foundry-info:        #38bdf8;   /* Info sky-blue */
+  --foundry-info-bg:     rgba(56, 189, 248, 0.12);
+  --foundry-info-border: rgba(56, 189, 248, 0.30);
+
+  /* ── Orange alpha variants (for glows & overlays) ── */
+  --foundry-orange-glow-sm:  rgba(249, 115, 22, 0.08);
+  --foundry-orange-glow-md:  rgba(249, 115, 22, 0.12);
+  --foundry-orange-glow-lg:  rgba(249, 115, 22, 0.20);
+
+  /* ────────────────────────────────────────────────
+     SUB-BRAND — ORBIT
+     Space mission tracker. Deep navy + forge orange ring.
+     Orbit accent: #3b82f6 (sky blue — Tailwind blue-500)
+  ──────────────────────────────────────────────── */
+
+  --orbit-bg-deep:    #06090f;   /* Deep space black */
+  --orbit-bg-surface: #0d1526;   /* Dark navy surface */
+  --orbit-bg-card:    #1a2540;   /* Navy card */
+  --orbit-border:     #2d3a5a;   /* Navy border */
+
+  --orbit-primary-300: #93c5fd;  /* Sky blue light */
+  --orbit-primary-400: #60a5fa;  /* Sky blue medium */
+  --orbit-primary-500: #3b82f6;  /* PRIMARY — Orbit accent */
+  --orbit-primary-600: #2563eb;  /* Darker blue */
+  --orbit-primary-700: #1d4ed8;  /* Deep blue */
+
+  --orbit-primary:    var(--orbit-primary-500);
+
+  /* Orbit also uses forge orange as secondary accent */
+  --orbit-secondary:  var(--foundry-orange-500);
+
+  /* Star/nebula accent colours */
+  --orbit-purple:     #a78bfa;   /* Nebula purple */
+  --orbit-indigo:     #6366f1;   /* Deep space indigo */
+  --orbit-teal:       #2dd4bf;   /* Spacecraft teal */
+
+  /* Alpha glows */
+  --orbit-glow-sm:    rgba(59, 130, 246, 0.08);
+  --orbit-glow-md:    rgba(59, 130, 246, 0.14);
+  --orbit-glow-lg:    rgba(59, 130, 246, 0.24);
+
+  /* ────────────────────────────────────────────────
+     SUB-BRAND — QUIZFORGE
+     Pub quiz platform. Dark warm purple + forge orange lightning.
+     QuizForge accent: #8b5cf6 (violet — Tailwind violet-500)
+  ──────────────────────────────────────────────── */
+
+  --quizforge-bg-deep:    #0d0717;  /* Deep purple-black */
+  --quizforge-bg-surface: #180d2e;  /* Dark purple surface */
+  --quizforge-bg-card:    #241542;  /* Purple card */
+  --quizforge-border:     #3d2575;  /* Purple border */
+
+  --quizforge-primary-300: #c4b5fd; /* Violet light */
+  --quizforge-primary-400: #a78bfa; /* Violet medium */
+  --quizforge-primary-500: #8b5cf6; /* PRIMARY — QuizForge accent */
+  --quizforge-primary-600: #7c3aed; /* Darker violet */
+  --quizforge-primary-700: #6d28d9; /* Deep violet */
+
+  --quizforge-primary:    var(--quizforge-primary-500);
+
+  /* QuizForge also uses forge orange as secondary accent */
+  --quizforge-secondary:  var(--foundry-orange-500);
+
+  /* Quiz night atmosphere accents */
+  --quizforge-green:      #22c55e;  /* Correct answer green */
+  --quizforge-amber:      #fbbf24;  /* Pub gold */
+  --quizforge-pink:       #ec4899;  /* Bonus round highlight */
+
+  /* Alpha glows */
+  --quizforge-glow-sm:    rgba(139, 92, 246, 0.08);
+  --quizforge-glow-md:    rgba(139, 92, 246, 0.14);
+  --quizforge-glow-lg:    rgba(139, 92, 246, 0.24);
+
+}

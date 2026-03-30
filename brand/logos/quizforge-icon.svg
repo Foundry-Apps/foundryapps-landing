@@ -1,0 +1,28 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QuizForge icon">
+  <!-- Background — deep purple-black -->
+  <rect width="64" height="64" rx="14" fill="#180d2e"/>
+
+  <!-- Speech bubble body -->
+  <path d="M8 10 C8 7.79 9.79 6 12 6 H52 C54.21 6 56 7.79 56 10 V38 C56 40.21 54.21 42 52 42 H30 L20 58 L22 42 H12 C9.79 42 8 40.21 8 38 Z"
+        fill="#241542" stroke="#3d2575" stroke-width="1.2"/>
+
+  <!-- Lightning bolt — forge symbol -->
+  <path d="M38 10 L24 29 H33 L26 54 L42 30 H33 Z"
+        fill="url(#qf-icon-bolt)"/>
+
+  <!-- Subtle glow behind bolt -->
+  <path d="M38 10 L24 29 H33 L26 54 L42 30 H33 Z"
+        fill="url(#qf-icon-glow)" opacity="0.3" transform="scale(1.05) translate(-1.5 -1.5)"/>
+
+  <defs>
+    <linearGradient id="qf-icon-bolt" x1="32" y1="10" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#c4b5fd"/>
+      <stop offset="55%"  stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <radialGradient id="qf-icon-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#8b5cf6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

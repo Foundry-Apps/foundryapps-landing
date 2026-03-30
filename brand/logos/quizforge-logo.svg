@@ -1,0 +1,52 @@
+<svg width="272" height="64" viewBox="0 0 272 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QuizForge logo">
+  <!-- ── Icon (64×64) ── -->
+  <rect width="64" height="64" rx="14" fill="#180d2e"/>
+  <!-- Speech bubble -->
+  <path d="M8 10 C8 7.79 9.79 6 12 6 H52 C54.21 6 56 7.79 56 10 V38 C56 40.21 54.21 42 52 42 H30 L20 58 L22 42 H12 C9.79 42 8 40.21 8 38 Z"
+        fill="#241542" stroke="#3d2575" stroke-width="1.2"/>
+  <!-- Lightning bolt -->
+  <path d="M38 10 L24 29 H33 L26 54 L42 30 H33 Z" fill="url(#qf-logo-bolt)"/>
+
+  <!-- ── Wordmark ── -->
+  <!-- "Quiz" in violet -->
+  <text
+    x="80" y="30"
+    font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+    font-size="28"
+    font-weight="700"
+    fill="#8b5cf6"
+    letter-spacing="0.01em">Quiz</text>
+  <!-- "Forge" in forge orange -->
+  <text
+    x="148" y="30"
+    font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+    font-size="28"
+    font-weight="700"
+    fill="#f97316"
+    letter-spacing="0.01em">Forge</text>
+
+  <!-- "by Foundry Apps" sub-label -->
+  <text
+    x="80" y="48"
+    font-family="'Inter', system-ui, sans-serif"
+    font-size="10"
+    font-weight="500"
+    fill="#a8a29e"
+    letter-spacing="0.05em">by Foundry Apps</text>
+
+  <!-- Violet accent underline -->
+  <rect x="80" y="34" width="152" height="2" rx="1" fill="url(#qf-logo-underline)"/>
+
+  <defs>
+    <linearGradient id="qf-logo-bolt" x1="32" y1="10" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#c4b5fd"/>
+      <stop offset="55%"  stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="qf-logo-underline" x1="80" y1="0" x2="232" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#8b5cf6"/>
+      <stop offset="55%"  stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

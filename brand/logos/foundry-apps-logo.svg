@@ -1,0 +1,59 @@
+<svg width="288" height="64" viewBox="0 0 288 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Foundry Apps logo">
+  <!-- ── Icon ── -->
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="#1c1917"/>
+  <!-- Anvil base -->
+  <rect x="12" y="44" width="40" height="9" rx="3.5" fill="#44403c"/>
+  <!-- Anvil horn -->
+  <path d="M12 44 L22 44 L17 36 Z" fill="#57534e"/>
+  <!-- Anvil body -->
+  <rect x="18" y="26" width="28" height="18" rx="4" fill="#78716c"/>
+  <!-- Anvil top face -->
+  <rect x="14" y="22" width="36" height="6" rx="3" fill="#a8a29e"/>
+  <!-- Ember glow -->
+  <ellipse cx="32" cy="25" rx="12" ry="3.5" fill="url(#fa-logo-ember)"/>
+  <!-- Sparks -->
+  <circle cx="46" cy="17" r="2.5" fill="#fb923c" opacity="0.9"/>
+  <circle cx="40" cy="11" r="1.8" fill="#fdba74" opacity="0.8"/>
+  <circle cx="50" cy="26" r="1.5" fill="#f97316" opacity="0.85"/>
+  <circle cx="43" cy="9"  r="1.2" fill="#fbbf24" opacity="0.65"/>
+
+  <!-- ── Wordmark ── -->
+  <defs>
+    <radialGradient id="fa-logo-ember" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#f97316" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c2410c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fa-logo-grad" x1="80" y1="0" x2="288" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#f97316"/>
+      <stop offset="55%"  stop-color="#fdba74"/>
+    </linearGradient>
+  </defs>
+
+  <!-- "Foundry" in forge orange -->
+  <text
+    x="80" y="40"
+    font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+    font-size="26"
+    font-weight="700"
+    fill="url(#fa-logo-grad)"
+    letter-spacing="0.01em">Foundry</text>
+  <!-- "Apps" in warm white -->
+  <text
+    x="196" y="40"
+    font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+    font-size="26"
+    font-weight="700"
+    fill="#e7e5e4"
+    letter-spacing="0.01em"> Apps</text>
+
+  <!-- Tagline -->
+  <text
+    x="80" y="56"
+    font-family="'Inter', system-ui, sans-serif"
+    font-size="9"
+    font-weight="500"
+    fill="#78716c"
+    letter-spacing="0.12em"
+    text-transform="uppercase">SOFTWARE, FORGED TO LAST</text>
+</svg>

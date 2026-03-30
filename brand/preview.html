@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundry Apps — Brand Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Foundry Apps master brand */
+      --bg-deep:    #0c0a09;
+      --bg-surface: #1c1917;
+      --bg-card:    #292524;
+      --bg-hover:   #3c3836;
+      --border:     #44403c;
+      --border-lt:  #57534e;
+      --text:       #e7e5e4;
+      --muted:      #a8a29e;
+      --faint:      #78716c;
+
+      --orange-300: #fdba74;
+      --orange-400: #fb923c;
+      --orange-500: #f97316;
+      --orange-600: #ea580c;
+      --orange-700: #c2410c;
+
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error:   #ef4444;
+      --info:    #38bdf8;
+
+      /* Orbit */
+      --orbit-primary: #3b82f6;
+      --orbit-bg:      #06090f;
+      --orbit-surface: #0d1526;
+
+      /* QuizForge */
+      --quizforge-primary: #8b5cf6;
+      --quizforge-bg:      #0d0717;
+      --quizforge-surface: #180d2e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Nav ── */
+    .brand-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12,10,9,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      height: 56px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .brand-nav-inner::-webkit-scrollbar { display: none; }
+    .brand-nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--orange-500);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brand-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .brand-nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .brand-nav-links a:hover { color: var(--orange-500); }
+
+    /* ── Sections ── */
+    .brand-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header {
+      margin-bottom: 3rem;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange-500);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+    }
+
+    /* ── Colour Swatches ── */
+    .swatch-group { margin-bottom: 2.5rem; }
+    .swatch-group-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .swatch-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 100px;
+    }
+    .swatch-box {
+      width: 100%;
+      min-width: 100px;
+      height: 72px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .swatch-info { font-size: 0.78rem; }
+    .swatch-name { color: var(--text); font-weight: 500; display: block; }
+    .swatch-hex  { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; }
+
+    /* ── Typography Specimens ── */
+    .type-specimen { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .type-specimen:last-child { border-bottom: none; }
+    .type-meta {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--faint);
+      margin-bottom: 0.75rem;
+    }
+    .type-sample-display {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.05;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .type-sample-h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.5rem; line-height: 1.15; }
+    .type-sample-h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.875rem; line-height: 1.2; }
+    .type-sample-h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; line-height: 1.25; }
+    .type-sample-body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.6; color: var(--text); max-width: 65ch; }
+    .type-sample-small { font-family: 'Inter', sans-serif; font-size: 0.875rem; line-height: 1.5; color: var(--muted); }
+    .type-sample-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange-500);
+    }
+    .type-sample-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: var(--orange-300);
+      display: block;
+    }
+
+    /* ── Logo Display ── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .logo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .logo-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      min-height: 140px;
+      background: var(--bg-surface);
+    }
+    .logo-preview.light-bg {
+      background: #f5f4f0;
+    }
+    .logo-preview svg { max-width: 100%; height: auto; }
+    .logo-meta {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .logo-filename {
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .logo-desc {
+      font-size: 0.82rem;
+      color: var(--faint);
+    }
+
+    /* ── UI Components ── */
+    .component-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .component-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 0.75rem;
+    }
+    .component-block { margin-bottom: 2.5rem; }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange-500);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary:hover { background: var(--orange-400); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--orange-500);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid var(--orange-500);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-secondary:hover { background: rgba(249,115,22,0.1); }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-ghost:hover { border-color: var(--border-lt); color: var(--text); }
+
+    /* Orbit & QuizForge variants */
+    .btn-orbit {
+      display: inline-block;
+      background: var(--orbit-primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-quizforge {
+      display: inline-block;
+      background: var(--quizforge-primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 99px;
+    }
+    .badge-live    { color: #4ade80; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.30); }
+    .badge-coming  { color: var(--orange-400); background: rgba(249,115,22,0.10); border: 1px solid rgba(249,115,22,0.25); }
+    .badge-beta    { color: var(--info); background: rgba(56,189,248,0.10); border: 1px solid rgba(56,189,248,0.25); }
+    .badge-new     { color: var(--warning); background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.25); }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 99px;
+      background: rgba(249,115,22,0.10);
+      color: var(--orange-300);
+      border: 1px solid rgba(249,115,22,0.20);
+    }
+
+    /* Cards */
+    .demo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 320px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .demo-card:hover {
+      border-color: var(--orange-500);
+      box-shadow: 0 0 32px rgba(249,115,22,0.10);
+      transform: translateY(-3px);
+    }
+    .demo-card-icon {
+      width: 44px; height: 44px;
+      background: rgba(249,115,22,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--orange-500);
+    }
+    .demo-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+    .demo-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+
+    /* Input */
+    .demo-input {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.65rem 1rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      width: 280px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .demo-input:focus { border-color: var(--orange-400); }
+    .demo-input::placeholder { color: var(--faint); }
+
+    /* Notifications / alerts */
+    .alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      max-width: 400px;
+      margin-bottom: 0.75rem;
+    }
+    .alert-success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: #4ade80; }
+    .alert-warning { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); color: #fbbf24; }
+    .alert-error   { background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.25);  color: #f87171; }
+    .alert-info    { background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25); color: #7dd3fc; }
+
+    /* ── Contrast Checker ── */
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .contrast-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .contrast-swatch {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .contrast-info {
+      padding: 0.9rem 1rem;
+    }
+    .contrast-pair {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .contrast-ratio {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .contrast-badges {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .wcag-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .wcag-pass { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .wcag-fail { background: rgba(239,68,68,0.15); color: #f87171; }
+
+    /* ── Sub-brand strip ── */
+    .sub-brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .sub-brand-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .sub-brand-header {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sub-brand-body {
+      background: var(--bg-card);
+      padding: 1.5rem 2rem;
+    }
+    .sub-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .sub-brand-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .sub-brand-colours {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .sub-brand-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+    .sub-brand-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="brand-nav" aria-label="Brand preview navigation">
+  <div class="container brand-nav-inner">
+    <span class="brand-nav-logo">Brand Preview</span>
+    <ul class="brand-nav-links">
+      <li><a href="#colours">Colours</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#logos">Logos</a></li>
+      <li><a href="#components">Components</a></li>
+      <li><a href="#sub-brands">Sub-Brands</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<header style="padding: 5rem 0 4rem; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #0c0a09 0%, #1c1917 100%);">
+  <div class="container">
+    <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange-500); margin-bottom:0.75rem;">Foundry Apps</p>
+    <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2.5rem,6vw,4.5rem); font-weight:900; line-height:1.05; margin-bottom:1rem;">
+      Brand <span style="background:linear-gradient(135deg,var(--orange-500),var(--orange-300));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Guidelines</span>
+    </h1>
+    <p style="color:var(--muted); font-size:1.05rem; max-width:520px;">
+      Visual reference for the Foundry Apps master brand and its sub-brands, Orbit and QuizForge.
+      Version 1.0 · March 2026.
+    </p>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     COLOURS
+════════════════════════════════════════ -->
+<section id="colours" class="brand-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">01 — Colour</p>
+      <h2 class="section-title">The Palette</h2>
+      <p class="section-desc">All colours are defined as CSS custom properties in <code style="font-family:'JetBrains Mono',monospace;font-size:0.875rem;background:var(--bg-card);padding:0.1em 0.4em;border-radius:4px;color:var(--orange-300);">brand/colors.css</code>.</p>
+    </div>
+
+    <!-- Backgrounds -->
+    <div class="swatch-group">
+      <p class="swatch-group-title">Backgrounds</p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-box" style="background:#0c0a09;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Deep</span>
+            <span class="swatch-hex">#0c0a09</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#1c1917;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Surface</span>
+            <span class="swatch-hex">#1c1917</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#292524;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Card</span>
+            <span class="swatch-hex">#292524</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#3c3836;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Hover</span>
+            <span class="swatch-hex">#3c3836</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#44403c;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Border</span>
+            <span class="swatch-hex">#44403c</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="swatch-group">
+      <p class="swatch-group-title">Text</p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-box" style="background:#e7e5e4;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Primary</span>
+            <span class="swatch-hex">#e7e5e4</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#a8a29e;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Muted</span>
+            <span class="swatch-hex">#a8a29e</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#78716c;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Faint</span>
+            <span class="swatch-hex">#78716c</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forge Orange -->
+    <div class="swatch-group">
+      <p class="swatch-group-title">Forge Orange (Primary Accent)</p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-box" style="background:#fdba74;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Orange 300</span>
+            <span class="swatch-hex">#fdba74</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#fb923c;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Orange 400</span>
+            <span class="swatch-hex">#fb923c</span>
+          </div>
+        </div>
+        <div class="swatch" style="position:relative;">
+          <div class="swatch-box" style="background:#f97316; outline: 2px solid var(--orange-500); outline-offset:2px;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name" style="color:var(--orange-500);">★ Orange 500</span>
+            <span class="swatch-hex">#f97316</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#ea580c;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Orange 600</span>
+            <span class="swatch-hex">#ea580c</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#c2410c;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Orange 700</span>
+            <span class="swatch-hex">#c2410c</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semantic -->
+    <div class="swatch-group">
+      <p class="swatch-group-title">Semantic Colours</p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-box" style="background:#22c55e;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Success</span>
+            <span class="swatch-hex">#22c55e</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#f59e0b;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Warning</span>
+            <span class="swatch-hex">#f59e0b</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#ef4444;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Error</span>
+            <span class="swatch-hex">#ef4444</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#38bdf8;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Info</span>
+            <span class="swatch-hex">#38bdf8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-brand accents -->
+    <div class="swatch-group">
+      <p class="swatch-group-title">Sub-Brand Accents</p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-box" style="background:#3b82f6;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Orbit Blue</span>
+            <span class="swatch-hex">#3b82f6</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-box" style="background:#8b5cf6;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">QuizForge Violet</span>
+            <span class="swatch-hex">#8b5cf6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     TYPOGRAPHY
+════════════════════════════════════════ -->
+<section id="typography" class="brand-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">02 — Typography</p>
+      <h2 class="section-title">Type System</h2>
+      <p class="section-desc">Playfair Display for headings (craftsmanship, editorial), Inter for UI and body (clarity, legibility), JetBrains Mono for code.</p>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Playfair Display 900 · Display / Hero · clamp(2.5rem, 6vw, 5rem)</p>
+      <p class="type-sample-display">Forged to Last.</p>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Playfair Display 700 · H1 · 2.5rem · lh 1.15</p>
+      <h1 class="type-sample-h1">Software Built to Endure</h1>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Playfair Display 700 · H2 · 1.875rem · lh 1.2</p>
+      <h2 class="type-sample-h2">What We've Forged</h2>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Playfair Display 700 · H3 · 1.5rem · lh 1.25</p>
+      <h3 class="type-sample-h3">Built to Last</h3>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Inter 400 · Body · 1rem · lh 1.6</p>
+      <p class="type-sample-body">We craft digital products built to endure — refined through iteration, tested under pressure, and shipped with purpose. Every tool that leaves this forge has been shaped with intent, held to a standard, and made to serve the people who rely on it.</p>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Inter 400 · Small · 0.875rem · lh 1.5 · muted</p>
+      <p class="type-sample-small">A Foundry Apps product. Registered under ODPA registration DPA11561. Guernsey, Channel Islands.</p>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">Inter 600 · Eyebrow / Label · 0.72rem · ls 0.15em · uppercase · orange</p>
+      <p class="type-sample-label">Our Products</p>
+    </div>
+
+    <div class="type-specimen">
+      <p class="type-meta">JetBrains Mono 400 · Code · 0.875rem</p>
+      <code class="type-sample-code">const forge = new FoundryApps({ product: 'orbit', version: '2.4.1' });</code>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     LOGOS
+════════════════════════════════════════ -->
+<section id="logos" class="brand-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">03 — Logos</p>
+      <h2 class="section-title">Logo System</h2>
+      <p class="section-desc">All logo files are SVGs in <code style="font-family:'JetBrains Mono',monospace;font-size:0.875rem;background:var(--bg-card);padding:0.1em 0.4em;border-radius:4px;color:var(--orange-300);">brand/logos/</code>. Use SVG wherever possible.</p>
+    </div>
+
+    <div class="logo-grid">
+
+      <!-- Foundry Apps logo -->
+      <div class="logo-card">
+        <div class="logo-preview">
+          <svg width="288" height="64" viewBox="0 0 288 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="14" fill="#1c1917"/>
+            <rect x="12" y="44" width="40" height="9" rx="3.5" fill="#44403c"/>
+            <path d="M12 44 L22 44 L17 36 Z" fill="#57534e"/>
+            <rect x="18" y="26" width="28" height="18" rx="4" fill="#78716c"/>
+            <rect x="14" y="22" width="36" height="6" rx="3" fill="#a8a29e"/>
+            <ellipse cx="32" cy="25" rx="12" ry="3.5" fill="url(#prev-fa-ember)"/>
+            <circle cx="46" cy="17" r="2.5" fill="#fb923c" opacity="0.9"/>
+            <circle cx="40" cy="11" r="1.8" fill="#fdba74" opacity="0.8"/>
+            <circle cx="50" cy="26" r="1.5" fill="#f97316" opacity="0.85"/>
+            <defs>
+              <radialGradient id="prev-fa-ember" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f97316" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#c2410c" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="prev-fa-grad" x1="80" y1="0" x2="288" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="55%" stop-color="#fdba74"/>
+              </linearGradient>
+            </defs>
+            <text x="80" y="40" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="700" fill="url(#prev-fa-grad)" letter-spacing="0.01em">Foundry</text>
+            <text x="196" y="40" font-family="'Playfair Display', Georgia, serif" font-size="26" font-weight="700" fill="#e7e5e4" letter-spacing="0.01em"> Apps</text>
+            <text x="80" y="56" font-family="'Inter', system-ui, sans-serif" font-size="9" font-weight="500" fill="#78716c" letter-spacing="0.12em">SOFTWARE, FORGED TO LAST</text>
+          </svg>
+        </div>
+        <div class="logo-meta">
+          <p class="logo-filename">foundry-apps-logo.svg</p>
+          <p class="logo-desc">Primary logo — icon + wordmark + tagline. Use on dark backgrounds.</p>
+        </div>
+      </div>
+
+      <!-- Foundry Apps icon only -->
+      <div class="logo-card">
+        <div class="logo-preview">
+          <svg width="96" height="96" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="14" fill="#1c1917"/>
+            <rect x="12" y="44" width="40" height="9" rx="3.5" fill="#44403c"/>
+            <path d="M12 44 L22 44 L17 36 Z" fill="#57534e"/>
+            <rect x="18" y="26" width="28" height="18" rx="4" fill="#78716c"/>
+            <rect x="14" y="22" width="36" height="6" rx="3" fill="#a8a29e"/>
+            <ellipse cx="32" cy="25" rx="12" ry="3.5" fill="url(#prev-icon-ember)"/>
+            <circle cx="46" cy="17" r="2.5" fill="#fb923c" opacity="0.9"/>
+            <circle cx="40" cy="11" r="1.8" fill="#fdba74" opacity="0.8"/>
+            <circle cx="50" cy="26" r="1.5" fill="#f97316" opacity="0.85"/>
+            <defs>
+              <radialGradient id="prev-icon-ember" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#f97316" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#c2410c" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-meta">
+          <p class="logo-filename">foundry-apps-icon.svg</p>
+          <p class="logo-desc">Standalone icon. Use for favicons, app icons, avatars.</p>
+        </div>
+      </div>
+
+      <!-- Foundry Apps wordmark -->
+      <div class="logo-card">
+        <div class="logo-preview">
+          <svg width="220" height="40" viewBox="0 0 220 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="prev-wm-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#fdba74"/>
+              </linearGradient>
+            </defs>
+            <text x="0" y="30" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="url(#prev-wm-grad)" letter-spacing="0.01em">Foundry</text>
+            <text x="122" y="30" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#e7e5e4" letter-spacing="0.01em"> Apps</text>
+          </svg>
+        </div>
+        <div class="logo-meta">
+          <p class="logo-filename">foundry-apps-wordmark.svg</p>
+          <p class="logo-desc">Text-only wordmark for document headers and text contexts.</p>
+        </div>
+      </div>
+
+      <!-- Orbit logo -->
+      <div class="logo-card">
+        <div class="logo-preview" style="background:#06090f;">
+          <svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="14" fill="#06090f"/>
+            <circle cx="10" cy="10" r="0.8" fill="#e7e5e4" opacity="0.6"/>
+            <circle cx="54" cy="8" r="1" fill="#e7e5e4" opacity="0.5"/>
+            <ellipse cx="32" cy="32" rx="26" ry="8" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.25"/>
+            <circle cx="32" cy="32" r="13" fill="url(#prev-orbit-planet)"/>
+            <circle cx="32" cy="32" r="13" fill="none" stroke="#93c5fd" stroke-width="1" opacity="0.35"/>
+            <path d="M6 32 Q19 40 32 32" fill="none" stroke="url(#prev-orbit-rl)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M32 32 Q45 24 58 32" fill="none" stroke="url(#prev-orbit-rr)" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="58" cy="32" r="3.5" fill="#f97316"/>
+            <defs>
+              <radialGradient id="prev-orbit-planet" cx="38%" cy="32%" r="65%">
+                <stop offset="0%" stop-color="#93c5fd"/>
+                <stop offset="45%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#1e3a8a"/>
+              </radialGradient>
+              <linearGradient id="prev-orbit-rl" x1="6" y1="32" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f97316" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#fdba74" stop-opacity="0.9"/>
+              </linearGradient>
+              <linearGradient id="prev-orbit-rr" x1="32" y1="32" x2="58" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#fdba74" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f97316" stop-opacity="0.3"/>
+              </linearGradient>
+              <linearGradient id="prev-orbit-ul" x1="80" y1="0" x2="160" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <text x="80" y="30" font-family="'Playfair Display', Georgia, serif" font-size="30" font-weight="700" fill="#e7e5e4" letter-spacing="0.02em">Orbit</text>
+            <text x="80" y="48" font-family="'Inter', system-ui, sans-serif" font-size="10" font-weight="500" fill="#a8a29e" letter-spacing="0.05em">by Foundry Apps</text>
+            <rect x="80" y="34" width="80" height="2" rx="1" fill="url(#prev-orbit-ul)"/>
+          </svg>
+        </div>
+        <div class="logo-meta">
+          <p class="logo-filename">orbit-logo.svg</p>
+          <p class="logo-desc">Orbit full logo — planet icon + wordmark. Blue accent, dark navy background.</p>
+        </div>
+      </div>
+
+      <!-- QuizForge logo -->
+      <div class="logo-card">
+        <div class="logo-preview" style="background:#0d0717;">
+          <svg width="272" height="64" viewBox="0 0 272 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="14" fill="#180d2e"/>
+            <path d="M8 10 C8 7.79 9.79 6 12 6 H52 C54.21 6 56 7.79 56 10 V38 C56 40.21 54.21 42 52 42 H30 L20 58 L22 42 H12 C9.79 42 8 40.21 8 38 Z" fill="#241542" stroke="#3d2575" stroke-width="1.2"/>
+            <path d="M38 10 L24 29 H33 L26 54 L42 30 H33 Z" fill="url(#prev-qf-bolt)"/>
+            <defs>
+              <linearGradient id="prev-qf-bolt" x1="32" y1="10" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#c4b5fd"/>
+                <stop offset="55%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#f97316"/>
+              </linearGradient>
+              <linearGradient id="prev-qf-ul" x1="80" y1="0" x2="232" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#8b5cf6"/>
+                <stop offset="55%" stop-color="#f97316"/>
+                <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <text x="80" y="30" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#8b5cf6" letter-spacing="0.01em">Quiz</text>
+            <text x="148" y="30" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#f97316" letter-spacing="0.01em">Forge</text>
+            <text x="80" y="48" font-family="'Inter', system-ui, sans-serif" font-size="10" font-weight="500" fill="#a8a29e" letter-spacing="0.05em">by Foundry Apps</text>
+            <rect x="80" y="34" width="152" height="2" rx="1" fill="url(#prev-qf-ul)"/>
+          </svg>
+        </div>
+        <div class="logo-meta">
+          <p class="logo-filename">quizforge-logo.svg</p>
+          <p class="logo-desc">QuizForge full logo — speech bubble + lightning bolt. Violet/orange split wordmark.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     COMPONENTS
+════════════════════════════════════════ -->
+<section id="components" class="brand-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">04 — Components</p>
+      <h2 class="section-title">UI Components</h2>
+      <p class="section-desc">Dark-first component system. Consistent border radius, subtle hover glows, and forge orange as the action colour.</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="component-block">
+      <p class="component-label">Buttons — Master Brand</p>
+      <div class="component-row">
+        <button class="btn-primary">Explore the Catalogue</button>
+        <button class="btn-secondary">View Pricing</button>
+        <button class="btn-ghost">Learn More</button>
+      </div>
+    </div>
+
+    <div class="component-block">
+      <p class="component-label">Buttons — Sub-brands</p>
+      <div class="component-row">
+        <button class="btn-orbit">Launch Orbit</button>
+        <button class="btn-quizforge">Start QuizForge</button>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="component-block">
+      <p class="component-label">Badges</p>
+      <div class="component-row" style="align-items:center;">
+        <span class="badge badge-live">Live</span>
+        <span class="badge badge-coming">Coming Soon</span>
+        <span class="badge badge-beta">Beta</span>
+        <span class="badge badge-new">New</span>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="component-block">
+      <p class="component-label">Feature Tags</p>
+      <div class="component-row">
+        <span class="tag">Live Countdowns</span>
+        <span class="tag">50+ Launches</span>
+        <span class="tag">ISS Tracker</span>
+        <span class="tag">Destinations</span>
+        <span class="tag">Pro Tier</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="component-block">
+      <p class="component-label">Card (hover to see glow)</p>
+      <div class="component-row">
+        <div class="demo-card">
+          <div class="demo-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Built to Last</h3>
+          <p>We prioritise durability over shortcuts. Code written with long-term maintainability in mind.</p>
+        </div>
+        <div class="demo-card">
+          <div class="demo-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3>Fired by Feedback</h3>
+          <p>Real users reveal what specs miss. We ship, listen, and iterate continuously.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="component-block">
+      <p class="component-label">Text Input</p>
+      <input type="text" class="demo-input" placeholder="your@email.com">
+    </div>
+
+    <!-- Alerts -->
+    <div class="component-block">
+      <p class="component-label">Alerts / Notifications</p>
+      <div class="alert alert-success">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><path d="M20 6L9 17l-5-5"/></svg>
+        Launch data updated successfully.
+      </div>
+      <div class="alert alert-warning">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Launch window may be delayed. Check back soon.
+      </div>
+      <div class="alert alert-error">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        Couldn't load mission data. Check your connection and try again.
+      </div>
+      <div class="alert alert-info">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Pro tier unlocks detailed telemetry and mission archives.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SUB-BRANDS
+════════════════════════════════════════ -->
+<section id="sub-brands" class="brand-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">05 — Sub-Brands</p>
+      <h2 class="section-title">The Product Family</h2>
+      <p class="section-desc">Each product shares the dark foundation and forge orange, but has its own accent colour, background tint, and visual personality.</p>
+    </div>
+
+    <div class="sub-brand-grid">
+
+      <!-- Orbit -->
+      <div class="sub-brand-card" style="border-color:#2d3a5a;">
+        <div class="sub-brand-header" style="background: linear-gradient(135deg, #06090f, #0d1526);">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="14" fill="#06090f"/>
+            <circle cx="10" cy="10" r="0.8" fill="#e7e5e4" opacity="0.6"/>
+            <circle cx="54" cy="8" r="1" fill="#e7e5e4" opacity="0.5"/>
+            <ellipse cx="32" cy="32" rx="26" ry="8" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.25"/>
+            <circle cx="32" cy="32" r="13" fill="url(#sb-orbit-planet)"/>
+            <circle cx="32" cy="32" r="13" fill="none" stroke="#93c5fd" stroke-width="1" opacity="0.35"/>
+            <path d="M6 32 Q19 40 32 32" fill="none" stroke="url(#sb-orbit-rl)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M32 32 Q45 24 58 32" fill="none" stroke="url(#sb-orbit-rr)" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="58" cy="32" r="3.5" fill="#f97316"/>
+            <defs>
+              <radialGradient id="sb-orbit-planet" cx="38%" cy="32%" r="65%">
+                <stop offset="0%" stop-color="#93c5fd"/>
+                <stop offset="45%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#1e3a8a"/>
+              </radialGradient>
+              <linearGradient id="sb-orbit-rl" x1="6" y1="32" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f97316" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#fdba74" stop-opacity="0.9"/>
+              </linearGradient>
+              <linearGradient id="sb-orbit-rr" x1="32" y1="32" x2="58" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#fdba74" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f97316" stop-opacity="0.3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div>
+            <p class="sub-brand-name" style="color:#e7e5e4;">Orbit</p>
+            <p class="sub-brand-tagline">Track every mission to the stars.</p>
+          </div>
+        </div>
+        <div class="sub-brand-body">
+          <div class="sub-brand-colours">
+            <div class="sub-brand-dot" style="background:#3b82f6;" title="Orbit Blue #3b82f6"></div>
+            <div class="sub-brand-dot" style="background:#f97316;" title="Forge Orange #f97316"></div>
+            <div class="sub-brand-dot" style="background:#0d1526;" title="Navy Surface #0d1526"></div>
+            <div class="sub-brand-dot" style="background:#a78bfa;" title="Nebula Purple #a78bfa"></div>
+          </div>
+          <p class="sub-brand-desc">Space mission tracker. Deep navy backgrounds, sky blue accent, forge orange ring — a visual metaphor for the orange-lit rocket exhaust against the blue of space.</p>
+        </div>
+      </div>
+
+      <!-- QuizForge -->
+      <div class="sub-brand-card" style="border-color:#3d2575;">
+        <div class="sub-brand-header" style="background: linear-gradient(135deg, #0d0717, #180d2e);">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="14" fill="#180d2e"/>
+            <path d="M8 10 C8 7.79 9.79 6 12 6 H52 C54.21 6 56 7.79 56 10 V38 C56 40.21 54.21 42 52 42 H30 L20 58 L22 42 H12 C9.79 42 8 40.21 8 38 Z" fill="#241542" stroke="#3d2575" stroke-width="1.2"/>
+            <path d="M38 10 L24 29 H33 L26 54 L42 30 H33 Z" fill="url(#sb-qf-bolt)"/>
+            <defs>
+              <linearGradient id="sb-qf-bolt" x1="32" y1="10" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#c4b5fd"/>
+                <stop offset="55%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#f97316"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div>
+            <p class="sub-brand-name" style="color:#c4b5fd;">QuizForge</p>
+            <p class="sub-brand-tagline">The pub quiz platform, forged.</p>
+          </div>
+        </div>
+        <div class="sub-brand-body">
+          <div class="sub-brand-colours">
+            <div class="sub-brand-dot" style="background:#8b5cf6;" title="QuizForge Violet #8b5cf6"></div>
+            <div class="sub-brand-dot" style="background:#f97316;" title="Forge Orange #f97316"></div>
+            <div class="sub-brand-dot" style="background:#180d2e;" title="Purple Surface #180d2e"></div>
+            <div class="sub-brand-dot" style="background:#22c55e;" title="Correct Green #22c55e"></div>
+          </div>
+          <p class="sub-brand-desc">Pub quiz platform. Deep purple backgrounds, violet accent, forge orange lightning bolt — quiz knowledge (speech bubble) meets the forge (lightning bolt).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     ACCESSIBILITY
+════════════════════════════════════════ -->
+<section id="accessibility" class="brand-section" style="border-bottom:none;">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">06 — Accessibility</p>
+      <h2 class="section-title">Contrast Ratios</h2>
+      <p class="section-desc">WCAG 2.1 contrast requirements: AA requires 4.5:1 for normal text, 3:1 for large text (18pt+ or 14pt bold). AAA requires 7:1.</p>
+    </div>
+
+    <div class="contrast-grid" id="contrastGrid">
+      <!-- Populated by JavaScript below -->
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer style="background:var(--bg-deep);border-top:1px solid var(--border);padding:2rem 0;">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <p style="color:var(--faint);font-size:0.82rem;">Foundry Apps Brand Guidelines v1.0 · March 2026</p>
+    <p style="color:var(--faint);font-size:0.82rem;">david@foundryapps.co.uk</p>
+  </div>
+</footer>
+
+<script>
+// ── Contrast ratio calculator ──
+function luminance(hex) {
+  const r = parseInt(hex.slice(1,3),16)/255;
+  const g = parseInt(hex.slice(3,5),16)/255;
+  const b = parseInt(hex.slice(5,7),16)/255;
+  const toLinear = c => c <= 0.04045 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4);
+  return 0.2126*toLinear(r) + 0.7152*toLinear(g) + 0.0722*toLinear(b);
+}
+function contrast(hex1, hex2) {
+  const L1 = luminance(hex1);
+  const L2 = luminance(hex2);
+  const lighter = Math.max(L1,L2);
+  const darker  = Math.min(L1,L2);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+const pairs = [
+  { fg:'#e7e5e4', bg:'#0c0a09', label:'Body text on Deep' },
+  { fg:'#a8a29e', bg:'#0c0a09', label:'Muted text on Deep' },
+  { fg:'#f97316', bg:'#0c0a09', label:'Orange 500 on Deep' },
+  { fg:'#fb923c', bg:'#0c0a09', label:'Orange 400 on Deep' },
+  { fg:'#fdba74', bg:'#0c0a09', label:'Orange 300 on Deep' },
+  { fg:'#e7e5e4', bg:'#1c1917', label:'Body text on Surface' },
+  { fg:'#a8a29e', bg:'#292524', label:'Muted text on Card' },
+  { fg:'#ffffff', bg:'#f97316', label:'White on Orange 500' },
+  { fg:'#0c0a09', bg:'#f97316', label:'Dark on Orange 500' },
+  { fg:'#e7e5e4', bg:'#3b82f6', label:'Body text on Orbit Blue' },
+  { fg:'#e7e5e4', bg:'#8b5cf6', label:'Body text on QF Violet' },
+  { fg:'#4ade80', bg:'#0c0a09', label:'Success green on Deep' },
+];
+
+function wcagBadges(ratio) {
+  const badges = [];
+  const aaLarge = ratio >= 3;
+  const aa      = ratio >= 4.5;
+  const aaa     = ratio >= 7;
+
+  badges.push(`<span class="wcag-badge ${aaa  ? 'wcag-pass' : 'wcag-fail'}">AAA ${aaa?'✓':'✗'}</span>`);
+  badges.push(`<span class="wcag-badge ${aa   ? 'wcag-pass' : 'wcag-fail'}">AA ${aa?'✓':'✗'}</span>`);
+  badges.push(`<span class="wcag-badge ${aaLarge ? 'wcag-pass' : 'wcag-fail'}">AA Large ${aaLarge?'✓':'✗'}</span>`);
+  return badges.join('');
+}
+
+const grid = document.getElementById('contrastGrid');
+pairs.forEach(pair => {
+  const ratio = contrast(pair.fg, pair.bg);
+  const card = document.createElement('div');
+  card.className = 'contrast-card';
+  card.innerHTML = `
+    <div class="contrast-swatch" style="background:${pair.bg};color:${pair.fg};">${pair.label}</div>
+    <div class="contrast-info">
+      <p class="contrast-pair">${pair.fg} on ${pair.bg}</p>
+      <p class="contrast-ratio" style="color:${ratio>=4.5?'#4ade80':ratio>=3?'#fbbf24':'#f87171'}">${ratio.toFixed(2)}:1</p>
+      <div class="contrast-badges">${wcagBadges(ratio)}</div>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>

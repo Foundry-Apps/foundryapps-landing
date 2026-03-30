@@ -1,0 +1,49 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orbit icon">
+  <!-- Background — deep space -->
+  <rect width="64" height="64" rx="14" fill="#06090f"/>
+
+  <!-- Distant stars -->
+  <circle cx="10" cy="10" r="0.8" fill="#e7e5e4" opacity="0.6"/>
+  <circle cx="54" cy="8"  r="1.0" fill="#e7e5e4" opacity="0.5"/>
+  <circle cx="58" cy="44" r="0.7" fill="#e7e5e4" opacity="0.4"/>
+  <circle cx="8"  cy="52" r="0.8" fill="#e7e5e4" opacity="0.5"/>
+  <circle cx="20" cy="57" r="0.6" fill="#93c5fd" opacity="0.5"/>
+  <circle cx="48" cy="55" r="0.7" fill="#e7e5e4" opacity="0.4"/>
+  <circle cx="6"  cy="30" r="0.6" fill="#e7e5e4" opacity="0.3"/>
+
+  <!-- Orbit ellipse (back half — dimmer) -->
+  <ellipse cx="32" cy="32" rx="26" ry="8" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.25"/>
+
+  <!-- Planet -->
+  <circle cx="32" cy="32" r="13" fill="url(#orbit-icon-planet)"/>
+
+  <!-- Planet atmosphere rim -->
+  <circle cx="32" cy="32" r="13" fill="none" stroke="#93c5fd" stroke-width="1" opacity="0.35"/>
+
+  <!-- Surface detail — cloud band -->
+  <ellipse cx="30" cy="29" rx="6" ry="2" fill="#bfdbfe" opacity="0.18" transform="rotate(-15 30 29)"/>
+
+  <!-- Orbit ellipse (front half — solid, over planet bottom) -->
+  <path d="M6 32 Q19 40 32 32" fill="none" stroke="url(#orbit-icon-ring-l)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 32 Q45 24 58 32" fill="none" stroke="url(#orbit-icon-ring-r)" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Orbiting satellite dot -->
+  <circle cx="58" cy="32" r="3.5" fill="#f97316"/>
+  <circle cx="58" cy="32" r="5.5" fill="none" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
+
+  <defs>
+    <radialGradient id="orbit-icon-planet" cx="38%" cy="32%" r="65%">
+      <stop offset="0%"   stop-color="#93c5fd"/>
+      <stop offset="45%"  stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+    <linearGradient id="orbit-icon-ring-l" x1="6" y1="32" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#f97316" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fdba74" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="orbit-icon-ring-r" x1="32" y1="32" x2="58" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#fdba74" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+</svg>

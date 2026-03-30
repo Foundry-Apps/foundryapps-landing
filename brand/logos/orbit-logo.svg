@@ -1,0 +1,61 @@
+<svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orbit logo">
+  <!-- ── Icon (64×64) ── -->
+  <rect width="64" height="64" rx="14" fill="#06090f"/>
+  <!-- Stars -->
+  <circle cx="10" cy="10" r="0.8" fill="#e7e5e4" opacity="0.6"/>
+  <circle cx="54" cy="8"  r="1.0" fill="#e7e5e4" opacity="0.5"/>
+  <circle cx="58" cy="44" r="0.7" fill="#e7e5e4" opacity="0.4"/>
+  <circle cx="8"  cy="52" r="0.8" fill="#e7e5e4" opacity="0.5"/>
+  <!-- Orbit ellipse back -->
+  <ellipse cx="32" cy="32" rx="26" ry="8" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.25"/>
+  <!-- Planet -->
+  <circle cx="32" cy="32" r="13" fill="url(#orbit-logo-planet)"/>
+  <circle cx="32" cy="32" r="13" fill="none" stroke="#93c5fd" stroke-width="1" opacity="0.35"/>
+  <!-- Orbit ellipse front -->
+  <path d="M6 32 Q19 40 32 32"  fill="none" stroke="url(#orbit-logo-ring-l)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 32 Q45 24 58 32" fill="none" stroke="url(#orbit-logo-ring-r)" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Satellite -->
+  <circle cx="58" cy="32" r="3.5" fill="#f97316"/>
+  <circle cx="58" cy="32" r="5.5" fill="none" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- ── Wordmark ── -->
+  <text
+    x="80" y="30"
+    font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+    font-size="30"
+    font-weight="700"
+    fill="#e7e5e4"
+    letter-spacing="0.02em">Orbit</text>
+
+  <!-- "by Foundry Apps" sub-label -->
+  <text
+    x="80" y="48"
+    font-family="'Inter', system-ui, sans-serif"
+    font-size="10"
+    font-weight="500"
+    fill="#a8a29e"
+    letter-spacing="0.05em">by Foundry Apps</text>
+
+  <!-- Blue accent underline on "Orbit" -->
+  <rect x="80" y="34" width="80" height="2" rx="1" fill="url(#orbit-logo-underline)"/>
+
+  <defs>
+    <radialGradient id="orbit-logo-planet" cx="38%" cy="32%" r="65%">
+      <stop offset="0%"   stop-color="#93c5fd"/>
+      <stop offset="45%"  stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+    <linearGradient id="orbit-logo-ring-l" x1="6" y1="32" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#f97316" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fdba74" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="orbit-logo-ring-r" x1="32" y1="32" x2="58" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#fdba74" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="orbit-logo-underline" x1="80" y1="0" x2="160" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
