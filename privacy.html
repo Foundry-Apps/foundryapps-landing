@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Foundry Apps</title>
+  <meta name="description" content="Privacy Policy for Foundry Apps Ltd. How we collect, use, and protect your data.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230c0a09'/><text x='16' y='23' font-family='Georgia%2C serif' font-size='22' font-weight='bold' text-anchor='middle' fill='%23f97316'>F</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep:    #0c0a09;
+      --bg-surface: #1c1917;
+      --bg-card:    #292524;
+      --border:     #44403c;
+      --text:       #e7e5e4;
+      --muted:      #a8a29e;
+      --orange:     #f97316;
+      --orange-lt:  #fb923c;
+      --orange-dim: #fdba74;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(12,10,9,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    /* ── LEGAL CONTENT ── */
+    .legal-page {
+      padding: 7rem 0 5rem;
+    }
+    .legal-inner {
+      max-width: 760px;
+    }
+    .legal-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+    .legal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .legal-updated {
+      color: var(--muted);
+      font-size: 0.875rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-section {
+      margin-bottom: 2.5rem;
+    }
+    .legal-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .legal-section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    .legal-section ul {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .legal-section ul li { margin-bottom: 0.35rem; }
+    .legal-section a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+    .legal-section a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-deep);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy { color: var(--muted); font-size: 0.85rem; }
+    .footer-copy span { display: block; margin-top: 0.2rem; font-size: 0.8rem; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="Foundry Apps home">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="#1c1917"/>
+        <rect x="7" y="24" width="22" height="5" rx="2" fill="#44403c"/>
+        <polygon points="7,24 12,24 10,20" fill="#57534e"/>
+        <rect x="10" y="14" width="16" height="10" rx="2" fill="#78716c"/>
+        <ellipse cx="18" cy="19" rx="5" ry="3" fill="url(#eg)"/>
+        <circle cx="24" cy="11" r="1.5" fill="#fb923c" opacity="0.9"/>
+        <circle cx="20" cy="8" r="1" fill="#fdba74" opacity="0.7"/>
+        <circle cx="27" cy="14" r="1" fill="#f97316" opacity="0.8"/>
+        <defs>
+          <radialGradient id="eg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f97316" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#c2410c" stop-opacity="0.4"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <span class="nav-logo-text">Foundry Apps</span>
+    </a>
+    <ul class="nav-links" aria-label="Site links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#catalogue">Apps</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── CONTENT ── -->
+<main class="legal-page">
+  <div class="container">
+    <div class="legal-inner">
+      <span class="legal-eyebrow">Legal</span>
+      <h1 class="legal-title">Privacy Policy</h1>
+      <p class="legal-updated">Last updated: 30 March 2026</p>
+
+      <div class="legal-section">
+        <h2>1. Who we are</h2>
+        <p>Foundry Apps Ltd ("we", "us", "our") is a company registered in Guernsey, Channel Islands. We are registered with the Office of the Data Protection Authority (ODPA) under registration number <strong>DPA11561</strong>.</p>
+        <p>For any privacy-related enquiries, contact us at <a href="mailto:david@foundryapps.co.uk">david@foundryapps.co.uk</a>.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>2. What data we collect</h2>
+        <p>We collect the following categories of personal data:</p>
+        <ul>
+          <li><strong>Account information:</strong> your name and email address when you create an account.</li>
+          <li><strong>Usage data:</strong> pages visited, features used, session duration, and interaction events.</li>
+          <li><strong>Technical data:</strong> IP address, browser type, device type, and operating system.</li>
+          <li><strong>Payment data:</strong> billing details are collected and processed by Paddle (our payment processor) — we do not store card numbers or full payment details.</li>
+          <li><strong>Communications:</strong> the content of any messages you send us by email.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>3. How we use your data</h2>
+        <p>We use your data to:</p>
+        <ul>
+          <li>Provide, operate, and improve our products and services.</li>
+          <li>Process payments and manage your subscription.</li>
+          <li>Send transactional emails (account confirmations, billing receipts).</li>
+          <li>Respond to support requests and enquiries.</li>
+          <li>Analyse usage patterns to improve product quality and performance.</li>
+          <li>Meet our legal and regulatory obligations.</li>
+        </ul>
+        <p>Our lawful bases for processing are: performance of a contract (providing the service), legitimate interests (product improvement, security), compliance with legal obligations, and consent where required.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>4. Cookies</h2>
+        <p>We use cookies and similar technologies for:</p>
+        <ul>
+          <li><strong>Essential cookies:</strong> required for authentication and session management. These cannot be disabled.</li>
+          <li><strong>Analytics cookies:</strong> used by Google Analytics and/or PostHog to understand how visitors use our products. You can opt out via your browser settings or a cookie consent prompt where presented.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>5. Third-party services</h2>
+        <p>We work with the following third-party processors, each bound by appropriate data processing agreements:</p>
+        <ul>
+          <li><strong>Supabase</strong> — database and authentication infrastructure (EU region).</li>
+          <li><strong>Vercel</strong> — website and application hosting.</li>
+          <li><strong>Paddle</strong> — payment processing and subscription management. Paddle acts as a Merchant of Record. Their privacy policy applies to payment data.</li>
+          <li><strong>Google Analytics</strong> — usage analytics. Data may be transferred to the United States under Standard Contractual Clauses.</li>
+          <li><strong>PostHog</strong> — product analytics and event tracking.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2>6. Data retention</h2>
+        <p>We retain your personal data for as long as your account is active or as needed to provide services. If you close your account, we will delete or anonymise your data within 90 days, except where retention is required by law (e.g. financial records, which we keep for 7 years).</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>7. Your rights</h2>
+        <p>Under the Data Protection (Bailiwick of Guernsey) Law 2017, you have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you.</li>
+          <li>Rectify inaccurate or incomplete data.</li>
+          <li>Request erasure of your data ("right to be forgotten").</li>
+          <li>Restrict or object to certain processing.</li>
+          <li>Data portability — receive your data in a structured, machine-readable format.</li>
+          <li>Withdraw consent at any time where processing is based on consent.</li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a href="mailto:david@foundryapps.co.uk">david@foundryapps.co.uk</a>. We will respond within 30 days. You also have the right to lodge a complaint with the <a href="https://www.odpa.gg" target="_blank" rel="noopener noreferrer">ODPA</a>.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>8. Security</h2>
+        <p>We implement appropriate technical and organisational measures to protect your data against unauthorised access, loss, or disclosure. All data in transit is encrypted via TLS. Access to personal data is restricted to personnel who need it to perform their role.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>9. Changes to this policy</h2>
+        <p>We may update this policy from time to time. We will notify you of material changes by email or by a prominent notice on our website. Continued use of our services after changes take effect constitutes acceptance of the revised policy.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>10. Contact</h2>
+        <p>Foundry Apps Ltd<br>
+        Guernsey, Channel Islands<br>
+        <a href="mailto:david@foundryapps.co.uk">david@foundryapps.co.uk</a><br>
+        ODPA Registration: DPA11561</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-copy">
+      <p>&copy; 2026 Foundry Apps. All rights reserved.</p>
+      <span>Registered under ODPA registration DPA11561</span>
+    </div>
+    <ul class="footer-links" aria-label="Legal links">
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/terms">Terms of Service</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
