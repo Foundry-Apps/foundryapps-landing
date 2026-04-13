@@ -1,9 +1,13 @@
-# Task: ceo-config-sync
-Schedule: `0 2 * * *` (02:00 UTC daily)
-Enabled: true
-Description: Sync CEO Operating System files (CLAUDE.md, enforced rules, memory files) from Cowork to the foundryapps-landing git repo
+---
+taskId: ceo-config-sync
+cronExpression: "0 18 * * 0"
+schedule: 18:00 UTC Sunday (weekly)
+enabled: true
+description: Sync CEO Operating System files (CLAUDE.md, enforced rules, memory files) from Cowork to the foundryapps-landing git repo
+---
 
 ## Prompt
+
 Sync the CEO Operating System configuration from Cowork's local storage to the foundryapps-landing git repository. This ensures all settings are version-controlled and recoverable from any machine.
 
 Steps:

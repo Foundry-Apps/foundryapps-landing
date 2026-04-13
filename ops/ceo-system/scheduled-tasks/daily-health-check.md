@@ -1,12 +1,12 @@
 ---
 taskId: daily-health-check
-cron: "0 7 * * *"
-schedule: 07:00 daily (UTC)
+cronExpression: "0 7 * * *"
+schedule: 07:00 UTC daily
 enabled: true
 description: Daily health check of Orbit production infrastructure
 ---
 
-# daily-health-check
+## Prompt
 
 Run a daily health check of Orbit production infrastructure. Check:
 1. Site availability: curl https://orbit.foundryapps.co.uk and verify HTTP 200 with content

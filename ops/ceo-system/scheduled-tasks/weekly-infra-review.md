@@ -1,9 +1,13 @@
-# Task: weekly-infra-review
-Schedule: `0 9 * * 1` (09:00 UTC Monday)
-Enabled: true
-Description: Weekly Monday infrastructure review with alerting verification
+---
+taskId: weekly-infra-review
+cronExpression: "0 9 * * 1"
+schedule: 09:00 UTC Monday
+enabled: true
+description: Weekly infrastructure review with alerting verification
+---
 
 ## Prompt
+
 Run a weekly infrastructure review for Foundry Apps. Check:
 1. Vercel deployment health and build times
 2. Supabase database stats (table sizes, connection pool, RLS status)
