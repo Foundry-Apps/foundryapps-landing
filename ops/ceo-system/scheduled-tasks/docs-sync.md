@@ -1,9 +1,13 @@
-# Task: docs-sync
-Schedule: `0 20 * * 1,4` (20:00 UTC Monday and Thursday)
-Enabled: true
-Description: Check if operational docs need updating after recent PRs and sync CEO_STATE.md
+---
+taskId: docs-sync
+cronExpression: "0 20 * * 1,4"
+schedule: 20:00 UTC Monday and Thursday
+enabled: true
+description: Check if operational docs need updating after recent PRs and sync CEO_STATE.md
+---
 
 ## Prompt
+
 You are the Foundry Apps documentation maintenance agent. Your job is to keep operational docs in sync with reality.
 
 Pull latest master from C:\Users\david\apps\orbit and check:

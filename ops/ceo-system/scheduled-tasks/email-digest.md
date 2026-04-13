@@ -1,12 +1,12 @@
 ---
 taskId: email-digest
-cron: "0 9 * * *"
-schedule: 09:00 daily (UTC)
+cronExpression: "0 9 * * *"
+schedule: 09:00 UTC daily
 enabled: true
 description: Daily scan of Gmail for important business emails
 ---
 
-# email-digest
+## Prompt
 
 Scan Gmail for important business emails received in the last 24 hours. Look for:
 1. Replies from service providers (Paddle, Supabase, Vercel, Cloudflare, Sovereign Group, Collas Crill)

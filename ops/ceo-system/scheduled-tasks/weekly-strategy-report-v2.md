@@ -1,9 +1,13 @@
-# Task: weekly-strategy-report-v2
-Schedule: `0 9 * * 1` (09:00 UTC Monday)
-Enabled: true
-Description: Monday morning strategy and portfolio report sent to david@foundryapps.co.uk
+---
+taskId: weekly-strategy-report-v2
+cronExpression: "0 9 * * 1"
+schedule: 09:00 UTC Monday
+enabled: true
+description: Monday morning strategy and portfolio report sent to david@foundryapps.co.uk
+---
 
 ## Prompt
+
 Generate a weekly strategy and portfolio report for Foundry Apps. Cover:
 1. Portfolio overview — Orbit status, any other products in pipeline
 2. Feature velocity — what shipped this week

@@ -1,9 +1,13 @@
-# Task: weekly-ceo-brief-v2
-Schedule: `0 9 * * 1` (09:00 UTC Monday)
-Enabled: true
-Description: Monday morning CEO strategic briefing sent to david@foundryapps.co.uk
+---
+taskId: weekly-ceo-brief-v2
+cronExpression: "0 9 * * 1"
+schedule: 09:00 UTC Monday
+enabled: true
+description: Monday morning CEO strategic briefing sent to david@foundryapps.co.uk
+---
 
 ## Prompt
+
 Generate a weekly CEO briefing for Foundry Apps. Cover:
 1. Product status — Orbit features shipped this week, what's live
 2. Infrastructure health summary

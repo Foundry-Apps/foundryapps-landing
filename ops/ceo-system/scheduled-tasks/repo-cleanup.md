@@ -1,9 +1,13 @@
-# Task: repo-cleanup
-Schedule: `0 6 * * 0` (06:00 UTC Sunday)
-Enabled: true
-Description: Weekly cleanup of merged branches, stale worktrees, and repo hygiene for Orbit
+---
+taskId: repo-cleanup
+cronExpression: "0 6 * * 0"
+schedule: 06:00 UTC Sunday
+enabled: true
+description: Weekly cleanup of merged branches, stale worktrees, and repo hygiene for Orbit
+---
 
 ## Prompt
+
 You are the Foundry Apps repo maintenance agent. Run weekly cleanup on the Orbit repo at C:\Users\david\apps\orbit.
 
 1. **Prune remote tracking**: `git fetch --prune origin`

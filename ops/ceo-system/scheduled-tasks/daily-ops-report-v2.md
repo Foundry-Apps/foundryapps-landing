@@ -1,12 +1,12 @@
 ---
 taskId: daily-ops-report-v2
-cron: "0 8 * * 1-5"
-schedule: 08:00 weekdays (UTC)
+cronExpression: "0 8 * * 1-5"
+schedule: 08:00 UTC weekdays (Mon–Fri)
 enabled: true
 description: Weekday operational status report sent to david@foundryapps.co.uk
 ---
 
-# daily-ops-report-v2
+## Prompt
 
 Generate a daily operational status report for Foundry Apps. Cover:
 1. Orbit production status (up/down, any errors)
