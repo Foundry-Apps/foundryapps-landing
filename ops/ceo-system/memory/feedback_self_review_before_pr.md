@@ -14,6 +14,7 @@ Run `git diff master...HEAD` (or read all changed files) BEFORE creating a PR. T
 - Do NOT interleave other steps (TodoWrite, expo export, etc.) between commit and diff — run diff immediately after commit
 - Reading individual files does NOT satisfy the hook — an explicit `git diff` command must appear in the transcript before the push
 - `git diff --no-index` on untracked files before staging does NOT satisfy the requirement — only `git diff master...HEAD` after committing counts
+- `git diff --cached --stat` does NOT satisfy the requirement — it only shows staged changes, not the branch vs master comparison. The exact form `git diff master...HEAD` is required.
 - The review must come BEFORE `git push` and PR creation — retroactive diffs don't satisfy the hook
 - This applies even when changes are small and obviously correct
 - Do not trust your own recall of the sequence if the hook disagrees — the JSONL transcript is authoritative
