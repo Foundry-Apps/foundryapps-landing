@@ -21,7 +21,27 @@ Start a new Dispatch session and check:
 - Agent definitions are accessible
 - Key repos are reachable: orbit + foundryapps-landing
 
-### Step 4: Connect repos
+### Step 4: Recreate Scheduled Tasks
+
+The following scheduled tasks must be configured in the new Dispatch session. Each file in `ops/ceo-system/scheduled-tasks/` contains the full prompt needed to recreate it using the `create_scheduled_task` tool.
+
+Active tasks:
+
+| Task ID | Schedule | Description |
+|---|---|---|
+| `ceo-config-sync` | `0 2 * * *` (02:00 UTC daily) | Sync CEO config from Cowork to git repo |
+| `daily-health-check` | `0 7 * * *` (07:00 UTC daily) | Production infrastructure health check |
+| `daily-ops-report-v2` | `0 8 * * 1-5` (08:00 UTC weekdays) | Daily ops status report |
+| `email-digest` | `0 9 * * *` (09:00 UTC daily) | Gmail scan for important business emails |
+| `docs-sync` | `0 20 * * 1,4` (20:00 UTC Mon + Thu) | Sync CEO_STATE.md + check doc freshness |
+| `repo-cleanup` | `0 6 * * 0` (06:00 UTC Sunday) | Delete merged branches, clean worktrees |
+| `weekly-ceo-brief-v2` | `0 9 * * 1` (09:00 UTC Monday) | Weekly CEO strategic briefing |
+| `weekly-infra-review` | `0 9 * * 1` (09:00 UTC Monday) | Infrastructure review |
+| `weekly-strategy-report-v2` | `0 9 * * 1` (09:00 UTC Monday) | Strategy and portfolio report |
+
+To recreate: open each file in `ops/ceo-system/scheduled-tasks/` and use the `create_scheduled_task` tool with the `taskId`, `cronExpression`, `description`, and `prompt` from the file.
+
+### Step 5: Connect repos
 Ensure code tasks can access:
 - `C:\Users\david\apps\orbit` — Orbit product repo
 - `C:\Users\david\apps\foundryapps-landing` — Business ops repo
