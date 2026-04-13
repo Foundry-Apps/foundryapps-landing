@@ -1,0 +1,10 @@
+- [CEO Operational State](project_ceo_state.md) — CEO state doc lives at docs/ceo-state.md in foundryapps-landing (master brand repo)
+- [ISS Trajectory Line Follow-Up](project_iss_trajectory.md) — Next task: add orbit trajectory line to ISS map component
+- [Research before implementation](feedback_research_before_implementation.md) — WebSearch BEFORE writing any fix; Stop hook enforces this and flags violations
+- [Self-review diff before PR](feedback_self_review_before_pr.md) — Run git diff master...HEAD BEFORE git push + PR creation; Stop hook checks transcript
+- [Deployment Confirmation Required](feedback_deployment_confirmation.md) — Always confirm orbit.foundryapps.co.uk is live after merge, not just that PR merged
+- [GitHub Actions Org Write Permissions](feedback_github_actions_permissions.md) — 0-jobs failure means check Foundry-Apps org workflow permissions + YAML literal block indentation
+- [PWA Implementation](project_pwa.md) — Full PWA shipped 2026-04-01: manifest, SW v2, offline page, bottom nav, install prompt, apple-icon (PR #54)
+- [Below-fold framer-motion animations](feedback_below_fold_animations.md) — Use whileInView not animate for below-fold opacity:0 content — Chrome GPU compositor caches invisible state
+- [Yarn Workspaces Migration](project_yarn_migration.md) — Migrated to yarn@1.22.22 (Apr 2026); first APK built 6 Apr 2026 (build 3ae4c724); needs custom kotlinVersion plugin + expo-build-properties setting
+- [Mobile Blank Screen Root Cause](project_mobile_blank_screen.md) — React 18/19 Metro split caused blank Android screen; fixed in PR #200 (disableHierarchicalLookup=true)
