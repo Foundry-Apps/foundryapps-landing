@@ -2,22 +2,27 @@
 name: Enforced Operating Rules
 description: TIER 1 blocking rules that apply to ALL work — Dispatch, code tasks, and agents. Loaded on every session. Violations waste builds, money, and David's time.
 type: feedback
+originSessionId: a3a07943-25ea-4687-842b-baa4fad0c808
 ---
-
 # Enforced Operating Rules
 
 These are not suggestions. They are blocking requirements learned from real failures that cost builds, money, and David's time. Every agent, code task, and Dispatch session must follow them.
 
 ## TIER 1 — BLOCKING (every time, no exceptions)
 
-### 1. Research before implementing
-Before ANY fix, feature, or config change:
+### 1. Research before implementing volatile external work
+Before implementing a change that touches a volatile external API, SDK version, third-party config, or build/deploy system:
 - Web search for the current best practice for the specific SDK/framework version in use
 - Check official docs, GitHub issues, and community solutions
 - Verify what config options actually do — names are misleading (e.g. extraNodeModules is a fallback, not an override)
 - Include findings with links before proposing a solution
 - NEVER implement based on pattern-matching from memory alone — the ecosystem changes fast
-**Violated:** 12 Apr (edge-to-edge), 11 Apr (extraNodeModules). Cost: 4+ builds, hours of David's time.
+
+**Does NOT apply to:** pure file edits within the repo, design implementation from a spec, git conflict resolution, refactoring that doesn't cross an SDK boundary, or read-only analysis.
+
+**Why scoped:** the broader version produced loop-inducing hook rejections on legitimate work (design tasks, rebase resolution). Narrowed 19 Apr 2026 via PR #370. Original intent — volatile external integrations where memory drift is most dangerous — is preserved.
+
+**Violated (under old scope):** 12 Apr (edge-to-edge), 11 Apr (extraNodeModules). Cost: 4+ builds, hours of David's time.
 
 ### 2. Observe before hypothesising
 For any bug or unexpected behaviour:

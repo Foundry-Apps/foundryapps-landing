@@ -1,103 +1,86 @@
+---
+name: Enforced Operating Rules
+description: TIER 1 blocking rules that apply to ALL work — Dispatch, code tasks, and agents. Loaded on every session. Violations waste builds, money, and David's time.
+type: feedback
+originSessionId: a3a07943-25ea-4687-842b-baa4fad0c808
+---
 # Enforced Operating Rules
 
-These rules apply to all Foundry Apps engineering and operations work. Tier 1 rules are enforced deterministically by Claude Code hooks. Tier 2 rules are enforced by prompt review at session end.
+These are not suggestions. They are blocking requirements learned from real failures that cost builds, money, and David's time. Every agent, code task, and Dispatch session must follow them.
 
----
+## TIER 1 — BLOCKING (every time, no exceptions)
 
-## Tier 1 — Enforced by Hooks
+### 1. Research before implementing volatile external work
+Before implementing a change that touches a volatile external API, SDK version, third-party config, or build/deploy system:
+- Web search for the current best practice for the specific SDK/framework version in use
+- Check official docs, GitHub issues, and community solutions
+- Verify what config options actually do — names are misleading (e.g. extraNodeModules is a fallback, not an override)
+- Include findings with links before proposing a solution
+- NEVER implement based on pattern-matching from memory alone — the ecosystem changes fast
 
-### Rule 1: Research before implementing
-Web search for best practice, SDK docs, or API reference BEFORE writing any code or config change. The Stop hook checks that a web search occurred before any implementation in the session. Violations block session completion.
+**Does NOT apply to:** pure file edits within the repo, design implementation from a spec, git conflict resolution, refactoring that doesn't cross an SDK boundary, or read-only analysis.
 
-**Scope:** Any fix, feature, config change, or API integration. Applies even to small one-line fixes.
+**Why scoped:** the broader version produced loop-inducing hook rejections on legitimate work (design tasks, rebase resolution). Narrowed 19 Apr 2026 via PR #370. Original intent — volatile external integrations where memory drift is most dangerous — is preserved.
 
-**Reading files counts as starting implementation scope.** The web search must happen before reading any files related to the task.
+**Violated (under old scope):** 12 Apr (edge-to-edge), 11 Apr (extraNodeModules). Cost: 4+ builds, hours of David's time.
 
-**Hook location:** `orbit/.claude/settings.json` → Stop hook, prompt 1.
+### 2. Observe before hypothesising
+For any bug or unexpected behaviour:
+- Collect all available data first (logs, source maps, bundle inspection, device state)
+- Decode crash locations exactly (source maps for Hermes, stack traces, etc.)
+- State what the fix should change in a verifiable way before implementing
+- NEVER propose a fix based on the error message alone — diagnose the exact failure point
+**Violated:** 11 Apr (guessed React Navigation duplicate without source map). Cost: 5 builds.
 
----
+### 3. Verify the artifact, not just the code
+After any build or deployment:
+- Confirm the fix is in the actual binary/deployment (pull APK, grep bundle, curl page)
+- Compare bundle size to previous build — if identical, the fix didn't land
+- NEVER tell David to test without first verifying the artifact contains the fix
+**Violated:** 11 Apr (3 builds with identical cached bundles). Cost: 3 builds + David's testing time.
 
-### Rule 2: Self-review before PR
-Run `git diff master...HEAD` (or read all changed files) BEFORE `git push` and PR creation. The Stop hook checks that a diff review appeared in the transcript before the push.
+### 4. Self-review before PR
+Every PR gets a self-review before pushing:
+- Review the diff for security, correctness, and CLAUDE.md compliance
+- Check for common mistakes: HTTP vs HTTPS, missing error handling, hardcoded values
+- Verify the change matches the stated intent
+**Violated:** 10 Apr (code review bot catching P1 issues agents missed).
 
-**Required sequence:** edit → commit → `git diff master...HEAD` → push → PR.
+### 5. Local validation before cloud builds
+Before every EAS build (or equivalent):
+- pnpm install from repo root
+- npx expo export --platform android (catches JS bundle errors)
+- Compare bundle size to previous build
+- Grep bundle for known crash signatures
+- npx expo-doctor for version compatibility
+- Only then: eas build --clear-cache with bumped cacheVersion + cache key
+**Violated:** Multiple times during crash week. Cost: ~6 wasted build credits.
 
-Do not interleave other steps between commit and diff. Reading individual files does NOT satisfy this requirement — an explicit `git diff` command must appear.
+### 6. One build at a time
+- Check eas build:list before submitting any build
+- If start_code_task times out, check list_sessions — the task may already be running
+- NEVER submit duplicate builds from parallel tasks
+**Violated:** 7 Apr (4 parallel builds), 9 Apr (2 duplicate builds). Cost: 6 wasted credits.
 
-**Hook location:** `orbit/.claude/settings.json` → Stop hook, prompt 2.
+### 7. Never escalate ops to David
+- David is owner, not operator. Claude is CEO.
+- If it can be automated or done via code task, do it
+- Only escalate strategic decisions, not operational steps
+**Violated:** Multiple times in early April. David explicitly said to stop.
 
----
+## TIER 2 — STANDARD (should do, document exceptions)
 
-### Rule 3: Pre-build gate
-Before running EAS builds or triggering Vercel deployments, the pre-build gate hook checks that local validation has been completed (local Metro export, expo-doctor, etc.).
+### 8. Fix the agent, not just the problem
+After any incident, extract rules and update agent definitions/CLAUDE.md/hooks so the failure can't recur.
 
-**Hook location:** `orbit/.claude/settings.json` → PreToolUse (Bash matcher).
+### 9. Learn from code reviews
+When bot or human review finds issues, fix the bugs AND add rules to prevent recurrence.
 
----
+### 10. Track costs
+Before any paid operation (EAS build, API call with cost), note the cost. Flag when approaching budget limits.
 
-### Rule 4: Protected files
-Certain files are write-protected and cannot be modified without explicit override. This prevents accidental mutation of critical config.
+### 11. Respect David's time
+Batch testing rounds. Never ask "try again" without verifying the fix landed. Minimise the number of times David needs to manually interact.
 
-**Hook location:** `orbit/.claude/settings.json` → PreToolUse (Edit/Write/MultiEdit matcher).
-
----
-
-## Tier 2 — Process Rules (reviewed at session end)
-
-### Rule 5: Observe before hypothesising
-Collect data (logs, crash traces, git diff, API responses) before proposing a fix. Do not guess at root cause from symptoms alone.
-
-**For mobile crashes:** Get adb logcat output → decode bytecode offset → then propose fix.
-
----
-
-### Rule 6: Verify the artifact
-After a fix is deployed, confirm it is in the live artifact (binary, deployment) before reporting completion or asking the user to test. For EAS builds: pull APK and grep bundle for crash signature. For web: `curl production-url | grep expected-content`.
-
----
-
-### Rule 7: Local validation before builds
-Full pre-flight before every EAS or production build:
-1. `pnpm install` / `yarn install` from repo root
-2. `npx expo export --platform android` — catches JS bundle errors
-3. Compare bundle size to previous build — identical = fix didn't land
-4. Grep bundle for known crash signatures
-5. `npx expo-doctor`
-6. Then: `eas build --clear-cache`
-
----
-
-### Rule 8: One build at a time
-Check for in-progress EAS builds before submitting a new one. Never submit a build after each fix — accumulate fixes, submit one build.
-
----
-
-### Rule 9: Never escalate ops to David
-Automate operational decisions. Only escalate per the criteria in `CEO-PLAYBOOK.md` (downtime > 5 min, same fix fails twice, financial anomaly, security incident, compliance deadline, legal correspondence, cross-product architectural decision).
-
----
-
-## Hook Configuration
-
-The hooks that enforce Tier 1 rules live in `orbit/.claude/settings.json`. They must be present for the rules to be enforced. On a new machine, pull the orbit repo — the hooks are checked in and load automatically when Claude Code opens the project.
-
-```json
-"Stop": [
-  {
-    "hooks": [
-      {
-        "type": "prompt",
-        "prompt": "Check if this session involved implementing a fix, feature, or config change. If it did, verify that a web search was performed BEFORE the implementation began (not after)...",
-        "timeout": 30
-      },
-      {
-        "type": "prompt", 
-        "prompt": "Check if a PR was created in this session. If it was, verify that a git diff or explicit review of changed files was performed BEFORE the PR was created...",
-        "timeout": 30
-      }
-    ]
-  }
-]
-```
-
-Full hook JSON: `orbit/.claude/settings.json`.
+### 12. Stop after 2 failed attempts
+If the same approach fails twice, reassess the hypothesis. Don't keep building. Go back to Rule 2 (observe) and Rule 1 (research).
